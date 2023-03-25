@@ -5,26 +5,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Memory igra</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Memory game</title>
 </head>
+<header>
+  <a id=leaderboard-link>View Highscores <i></i></a>
+</header>
 
 <body>
 
   <section class="game">
-    
-    <h1 class="h1">Memory igra</h1>
-    <h2 class="h2">Cilj igre je skupiti sve parove kartica u što manje poteza. <br> Ova igra je odlična za povećanje
-      koncentracije i poboljšanje pamćenja pa započnite odmah! 😃</h2>
-    
+
+    <div id=start-card class="card">
+      <h1 class="h1">Memory game</h1>
+      <h2 class="h2">The goal of the game is to collect all pairs of cards in as few moves as possible.
+        <br> This game is great for increasing concentration and improving memory, so start now! 😃
+      </h2>
       <div class="intro">
-      <button>Pokreni igru</button>
+        <button clas="startBtn">Start game</button>
       </div>
+    </div>
 
     <div class="match fadeOut">
-      <div id="moves-count"></div>
-      <div class="score">Broj pronađenih kartica: <span>0</span><br></div>
-      
+
+      <div id="info">
+        <p id="result" class="score"></p>
+        <div id="moves-count"></div>
+        <div class="score">Cards found: <span>0</span><br></div>
+      </div>
+
       <div class="container">
         <div class="cell">
           <div class="front" data-index="1"><img src="img/slika1.png" alt=""></div>
@@ -75,9 +84,34 @@
           <div class="back"></div>
         </div>
       </div>
+
+      <div class="game-container"></div>
+      <div id=result-div>
+        <p id=result-text></p>
+      </div>
+    </div>
+
+    <div hidden id=score-card class="card">
+      <form class="inline-form" id="submission-form">
+        <label for="initials">Enter name: </label>
+        <input type="text" id="initials">
+        <button id="submit-button" class="button">Submit</button>
+      </form>
+    </div>
+
+    <div hidden id=leaderboard-card class="leaderboard-card">
+      <h2 class="highscore-list">Highscores:</h2>
+      <ol id="highscore-list" class="highscore-list"></ol>
+
+      <div class="inline-buttons">
+        <button id="back-button" class="button">Play again</button>
+        <button id="clear-button" class="button">Clear Highscores</button>
+      </div>
+    </div>
   </section>
 
-  <script src="index.js"></script>
+  <script src="js/index.js"></script>
+
 </body>
 
 </html>
