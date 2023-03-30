@@ -33,13 +33,13 @@ function clicking() {
         setInterval(() => {
             front[i].classList.remove('show')
         }, 2000);
-
+        
         card[i].addEventListener('click', () => {
 
             front[i].classList.add('flip')
             const filppedCard = document.querySelectorAll('.flip')
 
-            if (filppedCard.length == 2) {
+            if (filppedCard.length >= 2) {
 
                 container.style.pointerEvents = 'none'
                 setInterval(() => {
@@ -47,7 +47,7 @@ function clicking() {
                 }, 1000);
 
                 match(filppedCard[0], filppedCard[1])
-            }
+            } 
         })
     }
 }
@@ -77,7 +77,7 @@ function match(cardOne, cardTwo) {
             cardOne.classList.remove('flip')
             cardTwo.classList.remove('flip')
             movesCounter();
-        }, 1000);
+        }, 400);
     }
 }
 
@@ -138,10 +138,10 @@ function getLeaderboard() {
 }
 
 var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0');
-var yyyy = today.getFullYear();
-today = yyyy + '/' + mm + '/' + dd;
+var dd = String(today.toLocaleDateString('hr-HR'));
+var time = String(today.toLocaleTimeString('hr-HR'));
+today = dd + time;
+
 
 
 function renderLeaderboard() {
